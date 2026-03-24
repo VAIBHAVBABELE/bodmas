@@ -1,0 +1,597 @@
+/* ============================================
+   BODMAS BUS EXPRESS - MAIN STYLES
+   ============================================ */
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Neue', 'Comic Neue', 'Segoe UI', 'Comic Sans MS', 'Chalkboard SE', cursive;
+    background: linear-gradient(135deg, #FFF9E6 0%, #FFE6B3 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* ========== LANDING PAGE STYLES ========== */
+.landing-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.bus-animation {
+    font-size: 80px;
+    animation: bounce 2s ease-in-out infinite;
+    display: inline-block;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+.game-title {
+    font-size: 48px;
+    color: #FF6B35;
+    text-shadow: 4px 4px 0 #FFD700;
+    margin: 10px 0;
+}
+
+.tagline {
+    font-size: 20px;
+    color: #5D3A1A;
+}
+
+/* Character Section */
+.character-section {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.character-section h2 {
+    color: #5D3A1A;
+    margin-bottom: 20px;
+}
+
+.character-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.character-card {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 3px solid #FFD700;
+    width: 150px;
+}
+
+.character-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.character-card.selected {
+    border-color: #FF6B35;
+    background: #FFF0E0;
+    transform: scale(1.05);
+}
+
+.character-avatar {
+    font-size: 60px;
+    margin-bottom: 10px;
+}
+
+.character-card h3 {
+    color: #FF6B35;
+    margin: 10px 0 5px;
+}
+
+.character-card p {
+    font-size: 12px;
+    color: #888;
+}
+
+/* Name Section */
+.name-section {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.name-section input {
+    padding: 15px 20px;
+    font-size: 18px;
+    border: 3px solid #FFD700;
+    border-radius: 50px;
+    width: 300px;
+    max-width: 80%;
+    font-family: inherit;
+    outline: none;
+    text-align: center;
+}
+
+.btn-primary {
+    background: #FF6B35;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 15px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: #FF8C5A;
+    transform: scale(1.05);
+}
+
+/* Rule Card */
+.rule-card {
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    margin-top: 40px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.rule-card h3 {
+    color: #FF6B35;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.rule-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.rule-item {
+    padding: 10px;
+    background: #FFF9E6;
+    border-radius: 10px;
+}
+
+.rule-letter {
+    display: inline-block;
+    background: #FF6B35;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.rule-note {
+    text-align: center;
+    color: #FF6B35;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+/* ========== GAME PAGE STYLES ========== */
+.game-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 30px;
+    padding: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+}
+
+/* Top Bar */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #FF6B35;
+    padding: 15px 20px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.player-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: white;
+    padding: 8px 15px;
+    border-radius: 50px;
+}
+
+.player-avatar {
+    font-size: 30px;
+}
+
+.player-name {
+    font-weight: bold;
+    color: #5D3A1A;
+}
+
+.stats {
+    display: flex;
+    gap: 20px;
+}
+
+.stat-item {
+    background: white;
+    padding: 8px 15px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+}
+
+.stat-icon {
+    font-size: 20px;
+}
+
+.btn-reset {
+    background: #5D3A1A;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Journey Path */
+.journey-path {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.milestone {
+    text-align: center;
+    background: white;
+    padding: 10px;
+    border-radius: 15px;
+    min-width: 70px;
+    z-index: 2;
+    position: relative;
+}
+
+.milestone.completed {
+    background: #7CB518;
+    color: white;
+}
+
+.milestone.active {
+    background: #FFD700;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 107, 53, 0.5);
+}
+
+.milestone-icon {
+    font-size: 30px;
+    display: block;
+}
+
+.milestone-label {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.path-line {
+    flex: 1;
+    height: 4px;
+    background: #FFD700;
+    margin: 0 5px;
+}
+
+/* Bus Progress */
+.bus-progress {
+    position: relative;
+    margin: 20px 0;
+    height: 60px;
+}
+
+.bus-icon {
+    font-size: 50px;
+    position: absolute;
+    transition: left 0.5s ease;
+    filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.2));
+}
+
+/* Level Info */
+.level-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #FFD700;
+    padding: 15px 20px;
+    border-radius: 15px;
+}
+
+.level-badge {
+    font-weight: bold;
+    font-size: 18px;
+    background: #FF6B35;
+    padding: 5px 15px;
+    border-radius: 50px;
+}
+
+.progress-text {
+    font-weight: bold;
+}
+
+/* Game Area */
+.game-area {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+.expression-card {
+    background: linear-gradient(135deg, #FFF9E6, #FFE6B3);
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+    border: 3px solid #FFD700;
+}
+
+.expression {
+    font-size: 48px;
+    font-weight: bold;
+    color: #5D3A1A;
+    font-family: monospace;
+    letter-spacing: 5px;
+    word-break: break-word;
+}
+
+.step-hint {
+    margin-top: 15px;
+    color: #FF6B35;
+    font-size: 16px;
+}
+
+/* Operators Grid */
+.operators-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.operator-btn {
+    background: #FF6B35;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 26px;
+    font-weight: bold;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.operator-btn:hover {
+    transform: scale(1.05);
+    background: #FF8C5A;
+}
+
+.operator-btn:active {
+    transform: scale(0.95);
+}
+
+.bracket-btn {
+    background: #4A90E2;
+}
+
+.bracket-btn:hover {
+    background: #6AA8FF;
+}
+
+/* Hint Button */
+.btn-hint {
+    width: 100%;
+    background: #7CB518;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 18px;
+    border-radius: 15px;
+    cursor: pointer;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.btn-hint:hover {
+    background: #96D11C;
+}
+
+/* Solution Panel */
+.solution-panel {
+    background: #F5F5F5;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px 0;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.solution-panel h3 {
+    color: #FF6B35;
+    margin-bottom: 15px;
+}
+
+.step-item {
+    padding: 10px;
+    background: white;
+    margin: 10px 0;
+    border-radius: 10px;
+    border-left: 4px solid #7CB518;
+}
+
+.step-correct {
+    border-left-color: #2ECC71;
+    background: #E8F8E8;
+}
+
+/* Feedback */
+.feedback {
+    text-align: center;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.feedback.correct {
+    background: #2ECC71;
+    color: white;
+}
+
+.feedback.wrong {
+    background: #E74C3C;
+    color: white;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 30px;
+    padding: 40px;
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+}
+
+.certificate-preview {
+    background: #FFF9E6;
+    padding: 20px;
+    border-radius: 15px;
+    margin: 20px 0;
+    border: 3px solid #FFD700;
+}
+
+.certificate-preview p {
+    margin: 10px 0;
+}
+
+.btn-secondary {
+    background: #4A90E2;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+/* Animations */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.shake {
+    animation: shake 0.3s ease-in-out;
+}
+
+@keyframes celebrate {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.celebrate {
+    animation: celebrate 0.5s ease-in-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .game-title {
+        font-size: 32px;
+    }
+    
+    .expression {
+        font-size: 28px;
+    }
+    
+    .operators-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .journey-path {
+        overflow-x: auto;
+    }
+    
+    .top-bar {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .stats {
+        justify-content: center;
+    }
+    
+    .btn-primary {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .operators-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .operator-btn {
+        padding: 15px;
+        font-size: 24px;
+    }
+    
+    .expression {
+        font-size: 20px;
+    }
+}
+

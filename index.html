@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>BODMAS Bus Express | Learn Math the Fun Way!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="landing-container">
+        <!-- Animated Bus Header -->
+        <div class="header-section">
+            <div class="bus-animation">
+                🚌
+            </div>
+            <h1 class="game-title">BODMAS BUS EXPRESS</h1>
+            <p class="tagline">"Hop on the Math Bus! Learn BODMAS the Fun Way!"</p>
+        </div>
+
+        <!-- Character Selection -->
+        <div class="character-section">
+            <h2>Choose Your Character</h2>
+            <div class="character-grid">
+                <div class="character-card" data-character="rohan">
+                    <div class="character-avatar">👦</div>
+                    <h3>Rohan</h3>
+                    <p>Curious & Energetic</p>
+                </div>
+                <div class="character-card" data-character="sia">
+                    <div class="character-avatar">👧</div>
+                    <h3>Sia</h3>
+                    <p>Smart & Careful</p>
+                </div>
+                <div class="character-card" data-character="robot">
+                    <div class="character-avatar">🤖</div>
+                    <h3>BODMAS Robot</h3>
+                    <p>Helpful Guide</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Name Input -->
+        <div class="name-section">
+            <input type="text" id="playerName" placeholder="Enter your name" maxlength="20">
+            <button id="startGameBtn" class="btn-primary">START JOURNEY 🚀</button>
+        </div>
+
+        <!-- BODMAS Rule Card -->
+        <div class="rule-card">
+            <h3>📖 What is BODMAS?</h3>
+            <div class="rule-grid">
+                <div class="rule-item"><span class="rule-letter">B</span> Brackets first ( ) [ ] { }</div>
+                <div class="rule-item"><span class="rule-letter">O</span> Orders (powers)</div>
+                <div class="rule-item"><span class="rule-letter">D</span> Division ÷</div>
+                <div class="rule-item"><span class="rule-letter">M</span> Multiplication ×</div>
+                <div class="rule-item"><span class="rule-letter">A</span> Addition +</div>
+                <div class="rule-item"><span class="rule-letter">S</span> Subtraction -</div>
+            </div>
+            <p class="rule-note">⭐ Remember: DM and AS are solved LEFT to RIGHT!</p>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+    <script>
+        // Landing page initialization
+        document.getElementById('startGameBtn').addEventListener('click', function() {
+            const playerName = document.getElementById('playerName').value.trim();
+            const selectedChar = document.querySelector('.character-card.selected');
+            
+            if (!playerName) {
+                alert('Please enter your name!');
+                return;
+            }
+            
+            if (!selectedChar) {
+                alert('Please choose a character!');
+                return;
+            }
+            
+            const character = selectedChar.getAttribute('data-character');
+            localStorage.setItem('playerName', playerName);
+            localStorage.setItem('playerCharacter', character);
+            localStorage.setItem('playerScore', '0');
+            localStorage.setItem('currentLevel', '1');
+            localStorage.setItem('currentStep', '0');
+            localStorage.setItem('streak', '0');
+            
+            window.location.href = 'game.html';
+        });
+        
+        // Character selection
+        document.querySelectorAll('.character-card').forEach(card => {
+            card.addEventListener('click', function() {
+                document.querySelectorAll('.character-card').forEach(c => c.classList.remove('selected'));
+                this.classList.add('selected');
+            });
+        });
+        
+        // Enter key press
+        document.getElementById('playerName').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.getElementById('startGameBtn').click();
+            }
+        });
+    </script>
+</body>
+</html>
